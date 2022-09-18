@@ -35,3 +35,9 @@ source/client-app/.history/*
 # System files
 .DS_Store
 Thumbs.db
+
+# python packages
+env/
+
+#cpython files
+*.pyc
