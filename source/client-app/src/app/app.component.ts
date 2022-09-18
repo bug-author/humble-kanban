@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 
 export interface TestObject {
-  body: string;
+  message: string;
 }
 
 @UntilDestroy()
@@ -19,14 +19,10 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.http
-      .get<TestObject>('https://jsonplaceholder.typicode.com/posts/1')
+      .get<TestObject>('http://127.0.0.1:8000/')
       .pipe(untilDestroyed(this))
       .subscribe((data) => {
-        this.test =
-          data.body ===
-          'sunt aut facere repellat provident occaecati excepturi optio reprehenderit'
-            ? 'success'
-            : 'fail';
+        this.test = data.message;
       });
   }
 }
