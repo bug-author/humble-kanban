@@ -1,9 +1,11 @@
-from fastAPI import fastAPI
+from typing import Union
+
+from fastapi import FastAPI
 
 
 app = FastAPI()
 
 
-@app.get
+@app.get("/")
 def index():
     return {'message': 'Hello, world!'}

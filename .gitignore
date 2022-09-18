@@ -38,3 +38,6 @@ Thumbs.db
 
 # python packages
 env/
+
+#cpython files
+*.pyc
