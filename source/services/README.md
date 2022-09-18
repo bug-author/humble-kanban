@@ -1,17 +1,18 @@
+# Humble Kanban - backend
 
-### All paths are given relative to `services/`
+##### (All paths are given relative to `services/`)
 
-# create a virutal environment
+## create a virutal environment
 `python3 -m venv env`
 
-# activate env
+## activate env
 `app\env\Scripts\activate`
 
-# install dependencies
+## install dependencies
 `pip install fastapi[all]`
 
-# or
+## or
 `pip install -r requirements.txt`
 
-# run on local server
+## run on local server
 `uvicorn app.main:app --reload`
