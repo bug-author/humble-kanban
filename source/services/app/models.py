@@ -1,7 +1,4 @@
-import email
-from ssl import _PasswordType
 from sqlalchemy import Column, Integer, String, Boolean
-from sqlalchemy.sql.expresion import text
 from sqlalchemy.sql.sqltypes import TIMESTAMP
 from .database import Base
 
