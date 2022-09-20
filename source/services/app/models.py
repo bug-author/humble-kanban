@@ -10,8 +10,8 @@ class User(Base):
     username = Column(String, nullable=False)
     password = Column(String, nullable=False)
     email = Column(String, nullable=False, unique=True)
+
     # ==== #
     last_login = Column(TIMESTAMP(timezone=True))
-    is_active = Column(Boolean)
-    # ==== #
+    is_active = Column(Boolean, server_default='TRUE')
     is_deleted = Column(Boolean, server_default='FALSE', nullable=False)
