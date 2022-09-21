@@ -3,7 +3,7 @@ from sqlalchemy.sql.sqltypes import TIMESTAMP
 from .database import Base
 
 
-class User(Base):
+class Users(Base):
     __tablename__ = "users"
 
     id = Column(BigInteger, primary_key=True, nullable=False)
