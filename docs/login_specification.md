@@ -1,26 +1,41 @@
-POST auth/login/ 
+# POST auth/login/ 
 
-description => this api is used for validating user login and password
+description => this endpoint is used for validating user login and password
 
-request_params => {
-            username : username or user_email,
-            password : password,
-}
+## request parameters
+    ```
+    request_params = {
+                username : username or user_email,
+                password : password,
+    }
+    ```
 
 
-#if username and password combination are correct
-#jwt contains username 
-response_params => {
-            token : bearer <jwt>,
-}
+<!-- if username and password combination are correct -->
+<!-- #jwt contains username  -->
+## response parameters
 
-#if username and password combination are incorrect
-response_params => {
-            error : {message}, status : 401 or 403,
-            }
+    success response
+        ```
+        response_params = {
+                    token :  <jwt>,
+        }
+        ```
 
-#if username/user_email is not found
-response_params => {
-            error : {message}, status : 401
-            }
+<!-- if username and password combination are incorrect -->
+<!--- if username/user_email is not found -->
+    error response data
+        ```
+        response_params = {
+                    error : {message},
+                    status : 401,
+                    }
+        ```
+
+        ```
+        response_params = {
+                    error : {message},
+                    status : 401
+                    }
+        ```
 
