@@ -1,4 +1,4 @@
-# POST auth/register
+# POST user/register
 
     This endpoint is used for creating a user account if it doesn't exist else redirects to the login page.
 

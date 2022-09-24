@@ -1,4 +1,4 @@
-# POST auth/changePassword
+# POST user/changePassword
 
         This endpoint is used to change the password of a user.
         default content_type is "application/json",

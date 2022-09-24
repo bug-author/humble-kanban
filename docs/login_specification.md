@@ -1,4 +1,4 @@
-# POST auth/login/ 
+# POST user/login/ 
 
     This endpoint is used for validating user login and password
 
