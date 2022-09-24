@@ -42,5 +42,3 @@ env/
 #cpython files
 *.pyc
 
-# vscode settings
-.vscode

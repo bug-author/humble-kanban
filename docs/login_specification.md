@@ -1,6 +1,6 @@
 # POST auth/login/ 
 
-description => this endpoint is used for validating user login and password
+    This endpoint is used for validating user login and password
 
 ## request parameters
     ```
@@ -15,27 +15,27 @@ description => this endpoint is used for validating user login and password
 <!-- #jwt contains username  -->
 ## response parameters
 
-    success response
-        ```
-        response_params = {
-                    token :  <jwt>,
-        }
-        ```
+### success response
+    ```
+    response_params = {
+                token :  <jwt>,
+    }
+    ```
 
 <!-- if username and password combination are incorrect -->
 <!--- if username/user_email is not found -->
-    error response data
-        ```
-        response_params = {
-                    error : {message},
-                    status : 401,
-                    }
-        ```
+### error response data
+    ```
+    response_params = {
+                error : {message},
+                status : 401,
+                }
+    ```
 
-        ```
-        response_params = {
-                    error : {message},
-                    status : 401
-                    }
-        ```
+    ```
+    response_params = {
+                error : {message},
+                status : 401
+                }
+    ```
 
