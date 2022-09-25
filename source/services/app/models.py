@@ -40,7 +40,8 @@ class Boards(Base):
 
     board_id = Column(BigInteger, primary_key=True, nullable=False)
     board_name = Column(String, nullable=False)
-    project_id = ...
+    project_id = Column(BigInteger, ForeignKey(
+        "users.user_id", ondelete="CASCADE"), nullable=False)
     board_creator_id = Column(BigInteger, ForeignKey(
         "users.user_id", ondelete="CASCADE"), nullable=False)
 
