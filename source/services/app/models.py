@@ -1,6 +1,6 @@
 from sqlalchemy import Column, BigInteger, String, Boolean
 from sqlalchemy.sql.sqltypes import TIMESTAMP
-from .database import Base
+from database import Base
 
 
 class Users(Base):
