@@ -32,7 +32,7 @@ class Projects(Base):
                                 nullable=False, server_default=text("now()"))
     project_end_date = Column(TIMESTAMP(timezone=True),
                               nullable=False)
-    board_id = ...
+    # board_id = ...
 
 
 class Boards(Base):
