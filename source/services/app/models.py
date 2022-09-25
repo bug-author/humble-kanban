@@ -61,3 +61,9 @@ class Columns(Base):
     column_id = Column(BigInteger, primary_key=True, nullable=False)
     column_name = Column(String, nullable=False)
     board_id = ...
+
+
+class Tables(Base):
+    __tablename__ = "tables"
+
+    pass
