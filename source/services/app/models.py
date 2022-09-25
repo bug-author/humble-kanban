@@ -32,3 +32,12 @@ class Projects(Base):
     project_end_date = Column(TIMESTAMP(timezone=True),
                               nullable=False)
     board_id = ...
+
+
+class Boards(Base):
+    __tablename__ = "boards"
+
+    board_id = Column(BigInteger, primary_key=True, nullable=False)
+    board_name = Column(String, nullable=False)
+    project_id = ...
+    board_creator_id = ...
