@@ -27,7 +27,7 @@ class Projects(Base):
     project_id = Column(BigInteger, primary_key=True, nullable=False)
     project_name = Column(String, nullable=False)
     project_creator_id = Column(BigInteger, ForeignKey(
-        "users.user_id", ondelete="CASCADE"), nullable=False)
+        "users.user_id", ondelete="SET NULL"), nullable=False)
     project_start_date = Column(TIMESTAMP(timezone=True),
                                 nullable=False, server_default=text("now()"))
     project_end_date = Column(TIMESTAMP(timezone=True),
