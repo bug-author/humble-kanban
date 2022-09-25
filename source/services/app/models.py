@@ -35,6 +35,12 @@ class Projects(Base):
     # board_id = ...
 
 
+class UsersProjectsMap(Base):
+    __tablename__ = "users_projects_map"
+
+    pass
+
+
 class Boards(Base):
     __tablename__ = "boards"
 
