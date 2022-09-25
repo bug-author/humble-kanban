@@ -26,7 +26,7 @@ class Projects(Base):
 
     project_id = Column(BigInteger, primary_key=True, nullable=False)
     project_name = Column(String, nullable=False)
-    project_creator = Column(BigInteger, ForeignKey(
+    project_creator_id = Column(BigInteger, ForeignKey(
         "users.user_id", ondelete="CASCADE"), nullable=False)
     project_start_date = Column(TIMESTAMP(timezone=True),
                                 nullable=False, server_default=text("now()"))
@@ -51,7 +51,7 @@ class Tickets(Base):
 
     ticket_id = Column(BigInteger, primary_key=True, nullable=False)
     ticket_name = Column(String, nullable=False)
-    ticket_creator = ...
+    ticket_creator_od = ...
     ticket_creation_date = Column(TIMESTAMP(timezone=True),
                                   nullable=False, server_default=text("now()"))
     ticket_column_id = ...
