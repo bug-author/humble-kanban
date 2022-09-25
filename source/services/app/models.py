@@ -51,7 +51,8 @@ class Tickets(Base):
 
     ticket_id = Column(BigInteger, primary_key=True, nullable=False)
     ticket_name = Column(String, nullable=False)
-    ticket_creator_id = ...
+    ticket_creator_id = Column(BigInteger, ForeignKey(
+        "users.user_id", ondelete="CASCADE"), nullable=False)
     ticket_creation_date = Column(TIMESTAMP(timezone=True),
                                   nullable=False, server_default=text("now()"))
     ticket_column_id = ...
