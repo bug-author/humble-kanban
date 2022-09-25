@@ -58,13 +58,13 @@ class Tickets(Base):
     ticket_id = Column(BigInteger, primary_key=True, nullable=False)
     ticket_name = Column(String, nullable=False)
     ticket_creator_id = Column(BigInteger, ForeignKey(
-        "users.user_id", ondelete="CASCADE"), nullable=False)
+        "users.user_id", ondelete="SET NULL"), nullable=True)
     ticket_creation_date = Column(TIMESTAMP(timezone=True),
                                   nullable=False, server_default=text("now()"))
     ticket_column_id = Column(BigInteger, ForeignKey(
-        "columns.column_id", ondelete="CASCADE"), nullable=False)
+        "columns.column_id", ondelete="SET NULL"), nullable=True)
     assignee_id = Column(BigInteger, ForeignKey(
-        "users.user_id", ondelete="CASCADE"), nullable=False)
+        "users.user_id", ondelete="SET NULL"), nullable=True)
 
 
 class Columns(Base):
