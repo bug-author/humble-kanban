@@ -1,4 +1,4 @@
-from sqlalchemy import Column, BigInteger, String, Boolean
+from sqlalchemy import Column, BigInteger, String, Boolean, ForeignKey
 from sqlalchemy.sql.sqltypes import TIMESTAMP
 from sqlalchemy.sql.expression import text
 from database import Base
@@ -26,7 +26,8 @@ class Projects(Base):
 
     project_id = Column(BigInteger, primary_key=True, nullable=False)
     project_name = Column(String, nullable=False)
-    project_creator = ...
+    project_creator = Column(BigInteger, ForeignKey(
+        "users.user_id", ondelete="CASCADE"), nullable=False)
     project_start_date = Column(TIMESTAMP(timezone=True),
                                 nullable=False, server_default=text("now()"))
     project_end_date = Column(TIMESTAMP(timezone=True),
