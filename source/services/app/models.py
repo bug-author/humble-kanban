@@ -53,3 +53,11 @@ class Tickets(Base):
                                   nullable=False, server_default=text("now()"))
     ticket_column_id = ...
     assignee_id = ...
+
+
+class Columns(Base):
+    __tablename__ = "columns"
+
+    column_id = Column(BigInteger, primary_key=True, nullable=False)
+    column_name = Column(String, nullable=False)
+    board_id = ...
