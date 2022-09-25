@@ -55,7 +55,8 @@ class Tickets(Base):
         "users.user_id", ondelete="CASCADE"), nullable=False)
     ticket_creation_date = Column(TIMESTAMP(timezone=True),
                                   nullable=False, server_default=text("now()"))
-    ticket_column_id = ...
+    ticket_column_id = Column(BigInteger, ForeignKey(
+        "columns.column_id", ondelete="CASCADE"), nullable=False)
     assignee_id = Column(BigInteger, ForeignKey(
         "users.user_id", ondelete="CASCADE"), nullable=False)
 
