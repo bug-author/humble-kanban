@@ -65,7 +65,8 @@ class Columns(Base):
 
     column_id = Column(BigInteger, primary_key=True, nullable=False)
     column_name = Column(String, nullable=False)
-    board_id = ...
+    board_id = Column(BigInteger, ForeignKey(
+        "boards.board_id", ondelete="CASCADE"), nullable=False)
 
 
 class Tables(Base):
