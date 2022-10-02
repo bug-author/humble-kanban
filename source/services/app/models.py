@@ -77,7 +77,7 @@ class Columns(Base):
         "boards.board_id", ondelete="CASCADE"), nullable=False)
 
 
-class Tables(Base):
-    __tablename__ = "tables"
+class ColumnsFlow(Base):
+    __tablename__ = "columnsflow"
 
     pass
