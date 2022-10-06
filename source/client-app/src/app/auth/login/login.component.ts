@@ -1,6 +1,10 @@
+import { Router } from '@angular/router';
+import { AuthService } from './../../services/auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 
+@UntilDestroy()
 @Component({
   selector: 'hk-login',
   templateUrl: './login.component.html',
@@ -15,12 +19,23 @@ export class LoginComponent implements OnInit {
     ]),
   });
 
-  constructor() {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {}
 
-  public test() {
-    console.log(this.loginForm.controls.email.value);
+  public login() {
+    if (!this.loginForm.valid) return;
+
+    // if form is valid, email and password are not empty
+    this.authService
+      .login(
+        this.loginForm.controls.email.value!,
+        this.loginForm.controls.password.value!
+      )
+      .pipe(untilDestroyed(this))
+      .subscribe(() => {
+        this.router.navigate(['/']);
+      });
   }
 
   public getEmailErrorMessage() {
