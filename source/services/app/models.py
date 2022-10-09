@@ -38,8 +38,8 @@ class Projects(Base):
 class UsersProjectsMap(Base):
     __tablename__ = "users_projects_map"
 
-    user_id = Column(Integer, ForeignKey=("users.user_id"))
-    project_id = Column(Integer, ForeignKey=("projects.project_id"))
+    user_id = Column(Integer, ForeignKey("users.user_id"))
+    project_id = Column(Integer, ForeignKey("projects.project_id"))
     # user_role =
 
 
@@ -81,5 +81,5 @@ class Columns(Base):
 class ColumnsFlow(Base):
     __tablename__ = "columnsflow"
 
-    rom_column_id = Column(Integer, ForeignKey=("columns.column_id"))
-    to_column_id = Column(Integer, ForeignKey=("columns.column_id"))
+    rom_column_id = Column(Integer, ForeignKey("columns.column_id"))
+    to_column_id = Column(Integer, ForeignKey("columns.column_id"))
