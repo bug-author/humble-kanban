@@ -1,4 +1,4 @@
-from sqlalchemy import Column, BigInteger, String, Boolean, ForeignKey
+from sqlalchemy import Column, BigInteger, String, Boolean, ForeignKey, Integer
 from sqlalchemy.sql.sqltypes import TIMESTAMP
 from sqlalchemy.sql.expression import text
 from database import Base
@@ -33,13 +33,14 @@ class Projects(Base):
                                 nullable=False, server_default=text("now()"))
     project_end_date = Column(TIMESTAMP(timezone=True),
                               nullable=True)
-    # board_id = ...
 
 
 class UsersProjectsMap(Base):
     __tablename__ = "users_projects_map"
 
-    pass
+    user_id = Column(Integer, ForeignKey=("users.user_id"))
+    project_id = Column(Integer, ForeignKey=("projects.project_id"))
+    # user_role =
 
 
 class Boards(Base):
