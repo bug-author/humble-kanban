@@ -81,4 +81,5 @@ class Columns(Base):
 class ColumnsFlow(Base):
     __tablename__ = "columnsflow"
 
-    pass
+    rom_column_id = Column(Integer, ForeignKey=("columns.column_id"))
+    to_column_id = Column(Integer, ForeignKey=("columns.column_id"))
