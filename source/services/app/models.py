@@ -1,4 +1,4 @@
-from sqlalchemy import Column, BigInteger, String, Boolean, ForeignKey, Integer
+from sqlalchemy import Column, BigInteger, String, Boolean, ForeignKey, Integer, Table
 from sqlalchemy.sql.sqltypes import TIMESTAMP
 from sqlalchemy.sql.expression import text
 from database import Base
@@ -35,12 +35,12 @@ class Projects(Base):
                               nullable=True)
 
 
-class UsersProjectsMap(Base):
-    __tablename__ = "users_projects_map"
-
-    user_id = Column(Integer, ForeignKey("users.user_id"))
-    project_id = Column(Integer, ForeignKey("projects.project_id"))
-    # user_role =
+users_projects_association = Table('UsersProjectsMap', Base.metadata,
+                                   Column('user_id', ForeignKey(
+                                       'users.user_id'), primary_key=True),
+                                   Column('project_id', ForeignKey(
+                                       'projects.project_id'), primary_key=True)
+                                   )
 
 
 class Boards(Base):
