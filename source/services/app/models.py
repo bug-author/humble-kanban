@@ -1,7 +1,16 @@
 from sqlalchemy import Column, BigInteger, String, Boolean, ForeignKey, Integer, Table
 from sqlalchemy.sql.sqltypes import TIMESTAMP
 from sqlalchemy.sql.expression import text
+from sqlalchemy.orm import relationship
 from database import Base
+
+
+users_projects_association = Table('UsersProjectsMap', Base.metadata,
+                                   Column('user_id', ForeignKey(
+                                       'users.user_id'), primary_key=True),
+                                   Column('project_id', ForeignKey(
+                                       'projects.project_id'), primary_key=True)
+                                   )
 
 
 class Users(Base):
@@ -21,6 +30,9 @@ class Users(Base):
     created_at = Column(TIMESTAMP(timezone=True),
                         nullable=False, server_default=text("now()"))
 
+    projects = relationship(
+        'Projects', secondary=users_projects_association, back_populates='customers')
+
 
 class Projects(Base):
     __tablename__ = "projects"
@@ -34,13 +46,8 @@ class Projects(Base):
     project_end_date = Column(TIMESTAMP(timezone=True),
                               nullable=True)
 
-
-users_projects_association = Table('UsersProjectsMap', Base.metadata,
-                                   Column('user_id', ForeignKey(
-                                       'users.user_id'), primary_key=True),
-                                   Column('project_id', ForeignKey(
-                                       'projects.project_id'), primary_key=True)
-                                   )
+    users = relationship(
+        'Users', secondary=users_projects_association, back_populates='projects')
 
 
 class Boards(Base):
@@ -69,6 +76,14 @@ class Tickets(Base):
         "users.user_id", ondelete="SET NULL"), nullable=True)
 
 
+columns_flow_association = Table('ColumnsFlow', Base.metadata,
+                                 Column('from_column_id', ForeignKey(
+                                     'columns.column_id'), primary_key=True),
+                                 Column('to_column_id', ForeignKey(
+                                     'columns.column_id'), primary_key=True)
+                                 )
+
+
 class Columns(Base):
     __tablename__ = "columns"
 
@@ -77,9 +92,5 @@ class Columns(Base):
     board_id = Column(BigInteger, ForeignKey(
         "boards.board_id", ondelete="CASCADE"), nullable=False)
 
-
-class ColumnsFlow(Base):
-    __tablename__ = "columnsflow"
-
-    rom_column_id = Column(Integer, ForeignKey("columns.column_id"))
-    to_column_id = Column(Integer, ForeignKey("columns.column_id"))
+    columns_flow = relationship(
+        'Columns', secondary=columns_flow_association, back_populates='columns')
