@@ -2,7 +2,7 @@ from sqlalchemy import Column, BigInteger, String, Boolean, ForeignKey, Integer,
 from sqlalchemy.sql.sqltypes import TIMESTAMP
 from sqlalchemy.sql.expression import text
 from sqlalchemy.orm import relationship
-from database import Base
+from .database import Base
 
 
 users_projects_association = Table('UsersProjectsMap', Base.metadata,
