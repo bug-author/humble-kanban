@@ -41,4 +41,8 @@ env/
 
 #cpython files
 *.pyc
+<<<<<<< HEAD
 source/services/.env
+=======
+
+>>>>>>> 0fa9cc7b8e643ffa461fe01ac687a52cd2f9f3f8
