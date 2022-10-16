@@ -23,7 +23,9 @@ class Users(Base):
     email = Column(String, nullable=False, unique=True)
 
     # ==== #
-    last_login = Column(TIMESTAMP(timezone=True))
+    last_login = Column(TIMESTAMP(timezone=True),
+                        nullable=False, server_default=text("now()"))
+
     is_active = Column(Boolean, server_default="TRUE")
     is_deleted = Column(Boolean, server_default="FALSE", nullable=False)
 
