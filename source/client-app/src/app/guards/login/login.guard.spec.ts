@@ -1,14 +1,14 @@
+import { AuthService } from './../../services/auth/auth.service';
 import { TestBed } from '@angular/core/testing';
 import {
   ActivatedRouteSnapshot,
   Router,
   RouterStateSnapshot,
 } from '@angular/router';
-import { AuthStore } from 'src/app/services/auth/auth.store';
 
 import { LoginGuard } from './login.guard';
 
-class MockAuthStore {
+class MockAuthService {
   getToken() {
     return 'token';
   }
@@ -24,7 +24,7 @@ describe('LoginGuard', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
-        { provide: AuthStore, useClass: MockAuthStore },
+        { provide: AuthService, useClass: MockAuthService },
         { provide: Router, useClass: MockRouter },
       ],
     });
@@ -36,10 +36,10 @@ describe('LoginGuard', () => {
   });
 
   it('canActivate should block access to route if user is authenticated', () => {
-    const authStore = TestBed.inject(AuthStore);
+    const authService = TestBed.inject(AuthService);
     const router = TestBed.inject(Router);
 
-    spyOn(authStore, 'getToken').and.returnValue('token');
+    spyOn(authService, 'getToken').and.returnValue('token');
     spyOn(router, 'navigate');
 
     const activatedRouteShapshot: ActivatedRouteSnapshot =
@@ -53,10 +53,10 @@ describe('LoginGuard', () => {
   });
 
   it('canActivate should allow access to route if user is not authenticated', () => {
-    const authStore = TestBed.inject(AuthStore);
+    const authService = TestBed.inject(AuthService);
     const router = TestBed.inject(Router);
 
-    spyOn(authStore, 'getToken').and.returnValue(null);
+    spyOn(authService, 'getToken').and.returnValue(null);
     spyOn(router, 'navigate');
 
     const activatedRouteShapshot: ActivatedRouteSnapshot =
@@ -70,10 +70,10 @@ describe('LoginGuard', () => {
   });
 
   it('canActivateChild should block access to route if user is authenticated', () => {
-    const authStore = TestBed.inject(AuthStore);
+    const authService = TestBed.inject(AuthService);
     const router = TestBed.inject(Router);
 
-    spyOn(authStore, 'getToken').and.returnValue('token');
+    spyOn(authService, 'getToken').and.returnValue('token');
     spyOn(router, 'navigate');
 
     const activatedRouteShapshot: ActivatedRouteSnapshot =
@@ -87,10 +87,10 @@ describe('LoginGuard', () => {
   });
 
   it('canActivateChild should allow access to route if user is not authenticated', () => {
-    const authStore = TestBed.inject(AuthStore);
+    const authService = TestBed.inject(AuthService);
     const router = TestBed.inject(Router);
 
-    spyOn(authStore, 'getToken').and.returnValue(null);
+    spyOn(authService, 'getToken').and.returnValue(null);
     spyOn(router, 'navigate');
 
     const activatedRouteShapshot: ActivatedRouteSnapshot =

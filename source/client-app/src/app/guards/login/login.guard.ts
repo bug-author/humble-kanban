@@ -1,3 +1,4 @@
+import { AuthService } from './../../services/auth/auth.service';
 import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
@@ -8,13 +9,12 @@ import {
   UrlTree,
 } from '@angular/router';
 import { Observable } from 'rxjs';
-import { AuthStore } from 'src/app/services/auth/auth.store';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LoginGuard implements CanActivate, CanActivateChild {
-  constructor(private authStore: AuthStore, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {}
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -37,7 +37,7 @@ export class LoginGuard implements CanActivate, CanActivateChild {
   }
 
   private canAccessLogin() {
-    if (this.authStore.getToken()) {
+    if (this.authService.getToken()) {
       this.router.navigate(['/']);
       console.log('redirecting to home page');
       return false;

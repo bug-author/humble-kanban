@@ -1,4 +1,4 @@
-import { AuthStore } from './../../services/auth/auth.store';
+import { AuthService } from './../../services/auth/auth.service';
 import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
@@ -14,7 +14,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class IsAuthenticatedGuard implements CanActivate, CanActivateChild {
-  constructor(private authStore: AuthStore, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -44,7 +44,7 @@ export class IsAuthenticatedGuard implements CanActivate, CanActivateChild {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    if (!this.authStore.getToken()) {
+    if (!this.authService.getToken()) {
       this.router.navigate(['/auth/login']);
       return false;
     }
