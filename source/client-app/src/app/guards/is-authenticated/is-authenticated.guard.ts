@@ -46,7 +46,6 @@ export class IsAuthenticatedGuard implements CanActivate, CanActivateChild {
     | UrlTree {
     if (!this.authStore.getToken()) {
       this.router.navigate(['/auth/login']);
-      console.log('redirecting to login');
       return false;
     }
 
