@@ -14,6 +14,12 @@ export class AuthService {
     this.token = localStorage.getItem('token');
   }
 
+  /**
+   * Temporarily we are using mock api from reqres.in
+   * @param username - to test use "eve.holt@reqres.in"
+   * @param password  - any valid password will work
+   * @returns observable<void>
+   */
   public login(username: string, password: string): Observable<void> {
     return this.api
       .post<LoginRequest, LoginResponse>('login', { username, password })
