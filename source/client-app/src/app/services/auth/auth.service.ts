@@ -21,6 +21,8 @@ export class AuthService {
         map((response) => {
           this.saveToken(response.token);
         })
+
+        // TODO: Handle errors after api is implemented
       );
   }
 
@@ -39,7 +41,7 @@ export class AuthService {
   }
 
   private removeToken(): void {
-    this.token = undefined;
+    this.token = null;
     localStorage.removeItem('token');
   }
 }
