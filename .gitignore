@@ -44,3 +44,7 @@ env/
 
 # environment variables
 source/services/.env
+
+# migrations
+./source/services/alembic
+source/services/alembic/versions/
