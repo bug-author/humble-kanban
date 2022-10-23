@@ -47,3 +47,6 @@ source/services/.env
 
 # migrations
 source/services/alembic/versions/
+
+# pycache
+/__pycache__/
