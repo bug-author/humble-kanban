@@ -29,4 +29,8 @@
 
 3. `.env` file should be located in `humble-kanban\source\services\`
 
-4. `cd` to `humble-kanban\source\services\` and run `alembic upgrade head` to generate all tables
+4. `cd` to `humble-kanban\source\services\`
+
+5. `alembic revision --autogenerate -m "init"`
+
+6. run `alembic upgrade head` to generate all tables
