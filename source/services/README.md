@@ -28,6 +28,6 @@
 
 4. `cd` to `humble-kanban\source\services\`
 
-5. `alembic revision --autogenerate -m "init"`
+5. run `alembic revision --autogenerate -m "init"` to generate a migration file
 
 6. run `alembic upgrade head` to generate all tables
