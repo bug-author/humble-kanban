@@ -1,3 +1,4 @@
+alembic==1.8.1
 anyio==3.6.1
 autopep8==1.7.0
 certifi==2022.9.14
@@ -13,8 +14,10 @@ httptools==0.5.0
 idna==3.4
 itsdangerous==2.1.2
 Jinja2==3.1.2
+Mako==1.2.3
 MarkupSafe==2.1.1
 orjson==3.8.0
+psycopg2==2.9.4
 pycodestyle==2.9.1
 pydantic==1.10.2
 python-dotenv==0.21.0
