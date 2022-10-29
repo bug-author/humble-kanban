@@ -46,7 +46,9 @@ env/
 source/services/.env
 
 # migrations
-source/services/alembic/versions/
+# ignore all other files except gitkeep
+source/services/alembic/versions/*.*
+!source/services/alembic/versions/.gitkeep
 
 # pycache
 /__pycache__/
