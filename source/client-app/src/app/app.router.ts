@@ -15,4 +15,5 @@ export const routes: Routes = [
     canActivate: [LoginGuard],
     canActivateChild: [LoginGuard],
   },
+  { path: '**', redirectTo: '' }, // If route not found redirect to home
 ];
