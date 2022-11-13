@@ -42,3 +42,13 @@ env/
 #cpython files
 *.pyc
 
+# environment variables
+source/services/.env
+
+# migrations
+# ignore all other files except gitkeep
+source/services/alembic/versions/*.*
+!source/services/alembic/versions/.gitkeep
+
+# pycache
+/__pycache__/
