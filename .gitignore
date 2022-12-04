@@ -42,3 +42,6 @@ env/
 #cpython files
 *.pyc
 
+#meeting notes folder
+Meeting Notes
+.vscode/settings.json

@@ -25,6 +25,7 @@
 <!-- if username and password combination are incorrect -->
 <!--- if username/user_email is not found -->
 ### error response data
+
     ```
     response_params = {
                 error : {message},
@@ -32,10 +33,11 @@
                 }
     ```
 
+#### when user doesn't exist , since we cant login a user who doesn't exist
     ```
     response_params = {
                 error : {message},
-                status : 401
+                status : 403 
                 }
     ```
 
