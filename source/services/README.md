@@ -6,10 +6,16 @@
 `python3 -m venv env`
 
 ## activate env
-`app\env\Scripts\activate`
+`env\Scripts\activate`
+
+### for Linux
+`source env/bin/activate`
 
 ## install dependencies
 `pip install fastapi[all]`
+
+### for Linux
+`pip install 'fastapi[all]'`
 
 ## or
 `pip install -r requirements.txt`
