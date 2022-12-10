@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-
+from .routers import user
 
 # isnt required if alembic is used for db creation and migrations
 
@@ -24,3 +24,6 @@ app.add_middleware(
 @app.get("/")
 def index():
     return {'message': 'Hello, world!'}
+
+
+app.include_router(user.router)
