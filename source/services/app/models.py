@@ -33,7 +33,7 @@ class Users(Base):
                         nullable=False, server_default=text("now()"))
 
     projects = relationship(
-        'Projects', secondary=users_projects_association, back_populates='customers')
+        'Projects', secondary=users_projects_association, back_populates='users')
 
 
 class Projects(Base):
